@@ -8,7 +8,8 @@ import java.lang.Number;
 /**
  * 
  * CSCU9T4 Java strings and files exercise.
- *
+ * 3140298
+ * M.I Checkpoint #4 
  */
 public class FilesInOut {
 
