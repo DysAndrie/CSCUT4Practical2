@@ -19,23 +19,43 @@ public class FilesInOut {
 
     public static void main(String[] args) {
     
-        // Specificying the inputfile of the textfile. 
-	File inputFile = new File("C:\\Users\\admin\\Desktop\\Managing Information\\0_MI_TO-DO\\Checkpoint#4\\CSCUT4Practical2-main\\input.txt");
+        // Specifying the inputfile of the textfile. 
+    File inputFile = new File("C:\\Users\\admin\\Desktop\\Managing Information\\0_MI_TO-DO\\Checkpoint#4\\CSCUT4Practical2-main\\input.txt");
     File outputFile = new File("C:\\\\Users\\\\admin\\\\Desktop\\\\Managing Information\\\\0_MI_TO-DO\\\\Checkpoint#4\\\\CSCUT4Practical2-main\\\\output.txt");
 
  // Set up a new Scanner to read the input file.
-    Scanner in = new Scanner(inputFile);
-    PrintWriter out = new PrintWriter(outputFile);
+        try {
+        Scanner in = new Scanner(inputFile);
+        // Creating the printwriter to write to output file
+        PrintWriter out = new PrintWriter(outputFile);
 
+            while (in.hasNextLine())  // While loop which goes through each line in the input file
+            {
+                String line = in.nextLine(); 
+                String[] space = line.split(" "); // The String.split method' splits the line into an array of words
+                StringBuilder nameFormat = new StringBuilder();// Create a stringbuilder to hold the formatted name
+                String dateFormat = ""; // Declare a string to hold the formatted date
 
-      
-        // Processing line by line would be sensible here.
-        // Initially, echo the text to System.out to check you are reading correctly.
-        // Then add code to modify the text to the output format.
+               // That is, read a line, write a line, loop.
+              for (int i = 0; i < space.length; i++)  // For loop which iterates through the line of each letter 
+                {
+                    String word = space[i];
 
-        // Set up a new PrintWriter to write the output file.
-        // Add suitable code into the above processing (because you need to do this line by line also.
-        // That is, read a line, write a line, loop.
+                    if (i == 0) {  	
+                    	// For the first word which capitalizes the first letter and turn the rest to lowercase 
+                        String formattedWord = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+                        nameFormat.append(formattedWord);
+              	
+                    	 // For the last word which capitalizes the first letter and turn the rest to lowercase and seperates the digits
+                    } else if (i == 2 && word.length() == 1) { 	
+                    	nameFormat.append(" " + word.toUpperCase() + ".");
+                    	
+                    	// For other words in between
+                    } else {
+                        String formattedWord = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+                        nameFormat.append(" " + formattedWord.replaceAll("[0-9]", ""));
+                    }
+                }
 
         // Finally, add code to read the filenames as arguments from the command line.
 
