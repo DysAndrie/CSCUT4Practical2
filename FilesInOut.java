@@ -4,6 +4,10 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import java.lang.Number;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /**
  * 
@@ -14,10 +18,17 @@ import java.lang.Number;
 public class FilesInOut {
 
     public static void main(String[] args) {
-        // Replace this with statements to set the file name (input) and file name (output).
-        // Initially it will be easier to hardcode suitable file names.
+    
+        // Specificying the inputfile of the textfile. 
+	File inputFile = new File("C:\\Users\\admin\\Desktop\\Managing Information\\0_MI_TO-DO\\Checkpoint#4\\CSCUT4Practical2-main\\input.txt");
+    File outputFile = new File("C:\\\\Users\\\\admin\\\\Desktop\\\\Managing Information\\\\0_MI_TO-DO\\\\Checkpoint#4\\\\CSCUT4Practical2-main\\\\output.txt");
 
-        // Set up a new Scanner to read the input file.
+ // Set up a new Scanner to read the input file.
+    Scanner in = new Scanner(inputFile);
+    PrintWriter out = new PrintWriter(outputFile);
+
+
+      
         // Processing line by line would be sensible here.
         // Initially, echo the text to System.out to check you are reading correctly.
         // Then add code to modify the text to the output format.
