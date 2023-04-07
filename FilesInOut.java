@@ -58,9 +58,31 @@ public class FilesInOut {
                 }
 
         // Finally, add code to read the filenames as arguments from the command line.
+                // Gets the index of the last space in the input line,
+                int dateIndex = line.lastIndexOf(" ");  // which separates the name from the date string
+                String dateString = line.substring(dateIndex + 1); // Extract the date string from the input line, which
+                // starts after the last space and goes until the end of the line
+                
+                // Extract the day, month, and year from the date string
+                // Day is the first two characters, month is the next two characters, year is the rest
+                String day = dateString.substring(0, 2);
+                String month = dateString.substring(2, 4);
+                String year = dateString.substring(4);
+                  // Format the date string as dd/mm/yyyy
+                dateFormat = day + "/" + month + "/" + year;
 
-        System.out.println("You need to add your own code to do anything");
+                // write formatted output to file
+                out.printf("%-20s%s\n", nameFormat, dateFormat);
+            }
 
+            in.close();
+            out.close();
+    }
+    
+    catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        
     } // main
-
-} // FilesInOut
+    
+}  // FilesInOut
